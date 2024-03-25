@@ -2,30 +2,37 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>goit-js-hw-11</title>
+    <title>Home-work 11</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&display=swap"
+      rel="stylesheet"
+    />
+
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/modern-normalize@2.0.0/modern-normalize.min.css"
+    />
+
     
     
     <script type="module" crossorigin src="/goit-js-hw-11/commonHelpers.js"></script>
     <link rel="modulepreload" crossorigin href="/goit-js-hw-11/assets/vendor-5b791d57.js">
     <link rel="stylesheet" href="/goit-js-hw-11/assets/vendor-cf6910df.css">
-    <link rel="stylesheet" href="/goit-js-hw-11/assets/index-b2467526.css">
+    <link rel="stylesheet" href="/goit-js-hw-11/assets/index-12bb8f21.css">
   </head>
   <body>
+    <form class="js-search search">
+      <input class="input-search" name="search" type="text" />
+      <button class="btn-search" type="submit">Search</button>
+    </form>
     <div class="container">
-      <header>
-        <form class="search-form" autocomplete="off">
-          <input
-            type="search"
-            name="search"
-            placeholder="Search here..."
-            autofocus
-          />
-          <button type="submit">Search</button>
-        </form>
-      </header>
-      <ul class="gallery"></ul>
+      <span class="js-loader loader"></span>
+      <ul class="js-gallery gallery"></ul>
     </div>
+
+    
   </body>
 </html>

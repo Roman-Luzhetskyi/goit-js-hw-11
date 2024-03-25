@@ -3,8 +3,8 @@ import 'izitoast/dist/css/iziToast.min.css';
 import SimpleLightbox from 'simplelightbox';
 import 'simplelightbox/dist/simple-lightbox.min.css';
 
-import { getPictures } from './pixabay-api';
-import { createMarkup, displayErrorToast } from './render-functions';
+import { getPictures } from './js/pixabay-api';
+import { createMarkup, displayErrorToast } from './js/render-functions';
 
 const formSearch = document.querySelector('.js-search');
 const listImages = document.querySelector('.js-gallery');

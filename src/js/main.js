@@ -18,7 +18,12 @@ function onSearch(event) {
   listImages.innerHTML = '';
   loader.style.display = 'block';
 
-  const inputValue = event.target.elements.search.value;
+  const inputValue = event.target.elements.search.value.trim();
+
+  if (!inputValue) {
+    loader.style.display = 'none';
+    return;
+  }
 
   getPictures(inputValue)
     .then(data => {

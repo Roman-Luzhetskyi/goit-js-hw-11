@@ -1,18 +1,18 @@
+import iziToast from 'izitoast';
+import 'izitoast/dist/css/iziToast.min.css';
 import SimpleLightbox from 'simplelightbox';
 import 'simplelightbox/dist/simple-lightbox.min.css';
-const lightbox = new SimpleLightbox('.gallery a', {
-  captionsData: 'alt',
-  captionDelay: 250,
-});
 
-export function renderGallery(data, tagToInsert) {
-  tagToInsert.innerHTML = markup(data);
-
-  lightbox.refresh();
+export function displayErrorToast() {
+  iziToast.error({
+    title: 'Error',
+    message:
+      'Sorry, there are no images matching your search query. Please try again!',
+  });
 }
 
-function markup(data) {
-  return data.hits
+export function createMarkup(arr) {
+  return arr
     .map(
       ({
         webformatURL,
@@ -22,23 +22,35 @@ function markup(data) {
         views,
         comments,
         downloads,
-      }) => `
-				<li class="gallery-item hvr-grow">
-					<a class="gallery-link" href="${largeImageURL}">
-						<figure class="gallery-figure ">
-							<img class="gallery-image" src="${webformatURL}" alt="${tags}" loading="lazy">
-							<figcaption class="gallery-figcaption">
-								<ul class="img-content-wrapper">
-									<li>Likes<span>${likes}</span></li>
-									<li>Views<span>${views}</span></li>
-									<li>Comments<span>${comments}</span></li>
-									<li>Downloads<span>${downloads}</span></li>
-								</ul>
-							</figcaption>
-						</figure>
-					</a>
-				</li>
-		`
+      }) =>
+        `<li class="gallery-item">
+          <a class="gallery-link" href="${largeImageURL}">
+            <img
+              class="gallery-image"
+              src="${webformatURL}"
+              alt="${tags}"
+              width="360"
+            />
+          </a>
+          <div class="thumb-block">
+            <div class="block">
+              <h2 class="tittle">Likes</h2>
+              <p class="amount">${likes}</p>
+            </div>
+            <div class="block">
+              <h2 class="tittle">Views</h2>
+              <p class="amount">${views}</p>
+            </div>
+            <div class="block">
+              <h2 class="tittle">Comments</h2>
+              <p class="amount">${comments}</p>
+            </div>
+            <div class="block">
+              <h2 class="tittle">Downloads</h2>
+              <p class="amount">${downloads}</p>
+            </div>
+          </div>
+        </li>`
     )
     .join('');
 }

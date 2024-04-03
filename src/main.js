@@ -37,8 +37,7 @@ function onSearch(event) {
         });
       }
 
-      listImages.innerHTML = ('beforeend', createMarkup(data.hits));
-
+      listImages.insertAdjacentHTML('beforeend', createMarkup(data.hits));
       const refreshPage = new SimpleLightbox('.gallery a', {
         captions: true,
         captionsData: 'alt',

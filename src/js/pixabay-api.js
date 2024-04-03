@@ -11,7 +11,7 @@ export async function getPictures(name) {
   const KEY = '40891115-11d0b88dd3a60afc830d1d27f';
 
   if (name.includes(' ')) {
-    name.replace(/\s+/g, '+');
+    name = name.replace(/\s+/g, '+');
   }
 
   const searchParams = new URLSearchParams({
